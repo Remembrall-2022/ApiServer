@@ -30,6 +30,9 @@ jobs:
     - name: move to application code folder
       run: cd Rememberall/
 
+    - name: check ls
+      run: ls
+
     # Gradle Build를 위한 권한 부여
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
