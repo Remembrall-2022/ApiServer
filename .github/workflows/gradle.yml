@@ -13,8 +13,8 @@ jobs:
     
     # VM의 실행 환경 지정 => Amazon Linux2 AMI (HVM)
     runs-on: ubuntu-latest
-      env:
-        working-directory: ./Rememberall
+    env:
+      working-directory: ./Rememberall
 
     # 실행될 jobs를 순서대로 명시
     steps:
