@@ -1,6 +1,6 @@
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
     types:
       - closed
 
@@ -26,17 +26,13 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
 
-    # 폴더 이동
-    - name: move to Application Folder
-      run: cd Rememberall/
-
     # Gradle Build를 위한 권한 부여
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x Rememberall/gradlew
 
     # Gradle Build
     - name: Build with Gradle
-      run: ./gradlew clean build
+      run: Rememberall/gradlew clean build
 
     # DockerHub 로그인 
     - name: DockerHub Login
