@@ -28,33 +28,15 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
 
-    # temp
-    - name: before ls
-      run: ls
-
-    # temp
-    - name: before pwd
-      run: pwd
-
-    # 폴더 이동
-    - name: move to application code folder
-      run: cd /home/runner/work/ApiServer/ApiServer/Rememberall/
-
-    # temp
-    - name: after ls
-      run: ls
-
-    # temp
-    - name: after pwd
-      run: pwd
-
     # Gradle Build를 위한 권한 부여
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+      working-directory: ${{ env.working-directory }}
 
     # Gradle Build
     - name: Build with Gradle
       run: ./gradlew build
+      working-directory: ${{ env.working-directory }}
 
     # DockerHub 로그인 
     - name: DockerHub Login
