@@ -26,13 +26,17 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
 
+    # 폴더 이동
+    - name: move to application code folder
+      run: cd Rememberall/
+
     # Gradle Build를 위한 권한 부여
     - name: Grant execute permission for gradlew
-      run: chmod +x Rememberall/gradlew
+      run: chmod +x gradlew
 
     # Gradle Build
     - name: Build with Gradle
-      run: Rememberall/gradlew build
+      run: ./gradlew build
 
     # DockerHub 로그인 
     - name: DockerHub Login
