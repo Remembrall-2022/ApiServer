@@ -10,7 +10,7 @@ public class HealthCheckController {
 
 
     public String healthCheck() {
-        return "pong!";
+        return "pong!🍎";
     }
 
 
