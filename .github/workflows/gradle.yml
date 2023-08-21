@@ -84,7 +84,6 @@ jobs:
 
         script: |
           sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
-          sudo nohup dockerd
           sudo docker kill ${{ secrets.PROJECT_NAME }}
           sudo docker rm -f ${{ secrets.PROJECT_NAME }}
           sudo docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.PROJECT_NAME }}
