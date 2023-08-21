@@ -7,8 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class HealthCheckController {
 
     @GetMapping("/ping")
+
+
     public String healthCheck() {
-        return "pong";
+        return "pong\uD83C\uDF4E";
     }
+
 
 }
