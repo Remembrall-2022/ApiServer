@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 
 @Getter
-//@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Table(name = "trip_log")
 @Entity
 public class TripLog extends BaseTimeEntity {
@@ -31,7 +31,7 @@ public class TripLog extends BaseTimeEntity {
 
     @Column(name = "user_id")
     @NotNull
-    private final Long userId;
+    private Long userId;
 
     @Builder
     public TripLog(final String title, final LocalDate tripStartDate, final LocalDate tripEndDate, final Long userId){
@@ -40,6 +40,19 @@ public class TripLog extends BaseTimeEntity {
         this.tripEndDate = endDateIfLaterThanEndDate(tripStartDate, tripEndDate);
         this.userId = userIdIfNotNull(userId);
     }
+
+    public void updateTitle(final String title) {
+        this.title = titleIfNotEmpty(title);
+    }
+
+    public void updateStartDate(final LocalDate tripStartDate) {
+        this.tripStartDate = startDateIfEarlierThanEndDate(tripStartDate, tripEndDate);
+    }
+
+    public void updateEndDate(final LocalDate tripEndDate) {
+        this.tripEndDate = endDateIfLaterThanEndDate(tripStartDate, tripEndDate);
+    }
+
 
     private Long userIdIfNotNull(Long userId) {
         if (userId != null) return userId;

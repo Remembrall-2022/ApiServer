@@ -1,16 +1,13 @@
 package com.stella.rememberall.tripLog.entity;
 
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
 
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-class TripLogTest {
+class TripLogCreateTest {
 
     @Test
     public void 제목은_한글자_이상이다() {
@@ -106,8 +103,5 @@ class TripLogTest {
 
         assertTrue(e.getMessage().contains("userId은 null일 수 없습니다."));
     }
-
-    // @TODO : Basetime Entity 검사는 JPA 통합 테스트에서
-
 
 }

@@ -23,12 +23,22 @@ public abstract class BaseTimeEntity {
     @LastModifiedDate
     private LocalDateTime modifiedDateTime;
 
-    public String getCreateDateTime() {
-        return createdDateTime.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+    // DateTimeFormatter.ofPattern("yyyy.MM.dd")
+    public String getCreatedDateTime(DateTimeFormatter dateTimeFormatter) {
+        return createdDateTime.format(dateTimeFormatter);
     }
 
-    public String getModifiedDateTime() {
-        return modifiedDateTime.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+    public String getModifiedDateTime(DateTimeFormatter dateTimeFormatter) {
+        return createdDateTime.format(dateTimeFormatter);
     }
+
+
+//    public String getCreatedDateTime() {
+//        return createdDateTime.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+//    }
+//
+//    public String getModifiedDateTime() {
+//        return modifiedDateTime.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
+//    }
 
 }
