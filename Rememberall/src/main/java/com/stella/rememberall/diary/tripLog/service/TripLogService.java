@@ -1,9 +1,9 @@
-package com.stella.rememberall.tripLog.service;
+package com.stella.rememberall.diary.tripLog.service;
 
-import com.stella.rememberall.tripLog.data.TripLogResponseDto;
-import com.stella.rememberall.tripLog.data.TripLogServiceRequestDto;
-import com.stella.rememberall.tripLog.entity.TripLog;
-import com.stella.rememberall.tripLog.repository.TripLogRepository;
+import com.stella.rememberall.diary.tripLog.data.TripLogResponseDto;
+import com.stella.rememberall.diary.tripLog.data.TripLogServiceRequestDto;
+import com.stella.rememberall.diary.tripLog.entity.TripLog;
+import com.stella.rememberall.diary.tripLog.repository.TripLogRepository;
 import jakarta.validation.constraints.NotNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

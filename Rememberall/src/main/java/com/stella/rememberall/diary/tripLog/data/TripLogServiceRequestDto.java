@@ -1,6 +1,6 @@
-package com.stella.rememberall.tripLog.data;
+package com.stella.rememberall.diary.tripLog.data;
 
-import com.stella.rememberall.tripLog.entity.TripLog;
+import com.stella.rememberall.diary.tripLog.entity.TripLog;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,4 +1,4 @@
-package com.stella.rememberall.tripLog.entity;
+package com.stella.rememberall.diary.tripLog.entity;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;

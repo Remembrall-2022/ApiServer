@@ -1,6 +1,7 @@
 package com.stella.rememberall.tripLog.repository;
 
-import com.stella.rememberall.tripLog.entity.TripLog;
+import com.stella.rememberall.diary.tripLog.entity.TripLog;
+import com.stella.rememberall.diary.tripLog.repository.TripLogRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

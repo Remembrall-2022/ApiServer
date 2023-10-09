@@ -1,4 +1,4 @@
-package com.stella.rememberall.tripLog.data;
+package com.stella.rememberall.diary.tripLog.data;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

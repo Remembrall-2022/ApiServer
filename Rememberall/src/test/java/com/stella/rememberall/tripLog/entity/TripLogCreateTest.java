@@ -1,5 +1,6 @@
 package com.stella.rememberall.tripLog.entity;
 
+import com.stella.rememberall.diary.tripLog.entity.TripLog;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
