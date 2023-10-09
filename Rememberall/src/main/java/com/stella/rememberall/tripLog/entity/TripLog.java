@@ -35,50 +35,65 @@ public class TripLog extends BaseTimeEntity {
 
     @Builder
     public TripLog(final String title, final LocalDate tripStartDate, final LocalDate tripEndDate, final Long userId){
-        this.title = titleIfNotEmpty(title);
-        this.tripStartDate = startDateIfEarlierThanEndDate(tripStartDate, tripEndDate);
-        this.tripEndDate = endDateIfLaterThanEndDate(tripStartDate, tripEndDate);
-        this.userId = userIdIfNotNull(userId);
+        TripLog.checkParamsValid(title, tripStartDate, tripEndDate, userId);
+        this.title = title;
+        this.tripStartDate = tripStartDate;
+        this.tripEndDate = tripEndDate;
+        this.userId = userId;
+    }
+
+    private static void checkParamsValid(String title, LocalDate tripStartDate, LocalDate tripEndDate, Long userId) {
+        TripLog.checkTitleNotEmpty(title);
+        TripLog.checkStartDateIsEarlierThanEndDate(tripStartDate, tripEndDate);
+        TripLog.checkEndDateIsLaterThanStartDate(tripStartDate, tripEndDate);
+        TripLog.checkUserIdIsNotNull(userId);
     }
 
     public void updateTitle(final String title) {
-        this.title = titleIfNotEmpty(title);
+        TripLog.checkTitleNotEmpty(title);
+        if (!this.title.equals(title))
+            this.title = title;
     }
 
     public void updateStartDate(final LocalDate tripStartDate) {
-        this.tripStartDate = startDateIfEarlierThanEndDate(tripStartDate, tripEndDate);
+        TripLog.checkStartDateIsEarlierThanEndDate(tripStartDate, this.tripEndDate);
+        if (!this.tripStartDate.isEqual(tripStartDate))
+            this.tripStartDate = tripStartDate;
     }
 
     public void updateEndDate(final LocalDate tripEndDate) {
-        this.tripEndDate = endDateIfLaterThanEndDate(tripStartDate, tripEndDate);
+        TripLog.checkEndDateIsLaterThanStartDate(this.tripStartDate, tripEndDate);
+        if (!this.tripEndDate.isEqual(tripEndDate))
+            this.tripEndDate = tripEndDate;
     }
 
-
-    private Long userIdIfNotNull(Long userId) {
-        if (userId != null) return userId;
-        throw new IllegalArgumentException("userId은 null일 수 없습니다.");
+    private static void checkTitleNotEmpty(String title) {
+        if (title == null || title.isEmpty())
+            throw new IllegalArgumentException("title은 빈 값일 수 없습니다.");
     }
 
-    private static LocalDate startDateIfEarlierThanEndDate(LocalDate startDate, LocalDate endDate) {
-        checkDatesAreNotNull(startDate, endDate);
-        if (startDate.isBefore(endDate) || startDate.isEqual(endDate)) return startDate;
-        throw new IllegalArgumentException(String.format("startDate는 endDate보다 늦을 수 없습니다. startDate : %s, endDate : %s", startDate.toString(), endDate.toString()));
+    private static void checkUserIdIsNotNull(Long userId) {
+        if (userId == null)
+            throw new IllegalArgumentException("userId은 null일 수 없습니다.");
     }
 
-    private static LocalDate endDateIfLaterThanEndDate(LocalDate startDate, LocalDate endDate) {
-        checkDatesAreNotNull(startDate, endDate);
-        if (endDate.isAfter(startDate) || endDate.isEqual(startDate)) return endDate;
-        throw new IllegalArgumentException(String.format("endDate는 startDate보다 빠를 수 없습니다. startDate : %s, endDate : %s", startDate.toString(), endDate.toString()));
-    }
-
-    private static void checkDatesAreNotNull(LocalDate startDate, LocalDate endDate) {
-        if (startDate == null || endDate == null)
+    private static void checkDateIsNotNull(LocalDate date) {
+        if (date == null)
             throw new IllegalArgumentException("startDate 혹은 endDate는 null일 수 없습니다.");
     }
 
-    private static String titleIfNotEmpty(String title) {
-        if (title != null && !title.isEmpty()) return title;
-        throw new IllegalArgumentException("title은 빈 값일 수 없습니다.");
+    private static void checkStartDateIsEarlierThanEndDate(LocalDate startDate, LocalDate endDate) {
+        TripLog.checkDateIsNotNull(startDate);
+        TripLog.checkDateIsNotNull(endDate);
+        if (startDate.isBefore(endDate) || startDate.isEqual(endDate)) return;
+        throw new IllegalArgumentException(String.format("startDate는 endDate보다 늦을 수 없습니다. startDate : %s, endDate : %s", startDate.toString(), endDate.toString()));
+    }
+
+    private static void checkEndDateIsLaterThanStartDate(LocalDate startDate, LocalDate endDate) {
+        TripLog.checkDateIsNotNull(startDate);
+        TripLog.checkDateIsNotNull(endDate);
+        if (endDate.isAfter(startDate) || endDate.isEqual(startDate)) return;
+        throw new IllegalArgumentException(String.format("endDate는 startDate보다 빠를 수 없습니다. startDate : %s, endDate : %s", startDate.toString(), endDate.toString()));
     }
 
 }
