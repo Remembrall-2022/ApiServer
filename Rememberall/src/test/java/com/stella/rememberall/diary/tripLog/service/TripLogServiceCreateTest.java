@@ -1,9 +1,8 @@
-package com.stella.rememberall.tripLog.service;
+package com.stella.rememberall.diary.tripLog.service;
 
 import com.stella.rememberall.diary.tripLog.data.TripLogServiceRequestDto;
 import com.stella.rememberall.diary.tripLog.entity.TripLog;
 import com.stella.rememberall.diary.tripLog.repository.TripLogRepository;
-import com.stella.rememberall.diary.tripLog.service.TripLogService;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

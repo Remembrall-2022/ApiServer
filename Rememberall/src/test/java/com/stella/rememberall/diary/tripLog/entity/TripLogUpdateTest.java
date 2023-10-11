@@ -1,4 +1,4 @@
-package com.stella.rememberall.tripLog.entity;
+package com.stella.rememberall.diary.tripLog.entity;
 
 import com.stella.rememberall.diary.tripLog.entity.TripLog;
 import org.junit.jupiter.api.BeforeEach;

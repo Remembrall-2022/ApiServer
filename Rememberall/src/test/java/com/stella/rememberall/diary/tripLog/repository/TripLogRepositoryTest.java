@@ -1,4 +1,4 @@
-package com.stella.rememberall.tripLog.repository;
+package com.stella.rememberall.diary.tripLog.repository;
 
 import com.stella.rememberall.diary.tripLog.entity.TripLog;
 import com.stella.rememberall.diary.tripLog.repository.TripLogRepository;

@@ -1,4 +1,4 @@
-package com.stella.rememberall.tripLog.service;
+package com.stella.rememberall.diary.tripLog.service;
 
 import com.stella.rememberall.diary.tripLog.data.TripLogResponseDto;
 import com.stella.rememberall.diary.tripLog.data.TripLogServiceRequestDto;
