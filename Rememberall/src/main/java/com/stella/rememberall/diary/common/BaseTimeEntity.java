@@ -1,4 +1,4 @@
-package com.stella.rememberall.diary.tripLog.entity;
+package com.stella.rememberall.diary.common;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
@@ -23,22 +23,12 @@ public abstract class BaseTimeEntity {
     @LastModifiedDate
     private LocalDateTime modifiedDateTime;
 
-    // DateTimeFormatter.ofPattern("yyyy.MM.dd")
     public String getCreatedDateTime(DateTimeFormatter dateTimeFormatter) {
         return createdDateTime.format(dateTimeFormatter);
     }
 
     public String getModifiedDateTime(DateTimeFormatter dateTimeFormatter) {
-        return createdDateTime.format(dateTimeFormatter);
+        return modifiedDateTime.format(dateTimeFormatter);
     }
-
-
-//    public String getCreatedDateTime() {
-//        return createdDateTime.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
-//    }
-//
-//    public String getModifiedDateTime() {
-//        return modifiedDateTime.format(DateTimeFormatter.ofPattern("yyyy.MM.dd"));
-//    }
 
 }
